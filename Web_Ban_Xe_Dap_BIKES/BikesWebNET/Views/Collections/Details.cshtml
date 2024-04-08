@@ -1,0 +1,217 @@
+﻿
+@model IEnumerable<BikesWebNET.Models.Product>
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var Lst = ViewBag.datarelateto as IEnumerable<BikesWebNET.Models.Product>;
+}
+
+    @Styles.Render("~/Content/main")
+    @Styles.Render("~/Content/detail")
+    @Styles.Render("~/Content/toastr")
+
+    <style>
+
+        .detail-size .size-D {
+            width: 40px;
+            height: 40px;
+            background-color: #6c757d;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid #6c757d;
+            font-size: 12px;
+            font-weight: 500;
+            color: #050505;
+            cursor: not-allowed;
+            transition: all 0.2s ease-in-out;
+        }
+        .preview img {
+            height: 100%;
+            width: 500px;
+        }
+    </style>
+    <div class="container">
+        @{
+            foreach (var item in Model)
+            {
+                <div class="breadcrumb">
+                    <div class="grid">
+                        <a href="/">Trang chủ / </a>
+                        <span style="font-size:1.3rem"> @item.Type.nameType / </span>
+                        <span style="font-size:1.2rem" class="br-main"> @item.nameProduct </span>
+                    </div>
+                </div>
+                break;
+            }
+        }
+
+        <!-- detail -->
+        <div class="detail">
+
+            @{
+                foreach (var item in Model)
+                {
+                    <div class="grid">
+                        <div class="row">
+                            <div class="col">
+
+                                <div class="slider-detail">
+                                    <div class="product-detail">
+                                        <img class="img-detail"
+                                             src="@item.ImageProducts.First().URLImage"
+                                             alt=""
+                                             onclick="clickme(this)" />
+                                        <img class="img-detail"
+                                             src="@item.ImageProducts.Last().URLImage"
+                                             alt=""
+                                             onclick="clickme(this)" />
+                                        <!--<img class="img-detail"
+                                             src="https://product.hstatic.net/200000321771/product/269829084_354055683202680_6749155750206382252_n_9c2f4d6b48824a00ae29f456d9f05570_compact.jpg"
+                                             alt=""
+                                             onclick="clickme(this)" />
+                                        <img class="img-detail"
+                                             src="https://product.hstatic.net/200000321771/product/271493062_398113702111615_5709360159503487208_n_c086fdbf71204097bda383dd63239d95_compact.jpg"
+                                             alt=""
+                                             onclick="clickme(this)" />-->
+                                    </div>
+                                    <div class="preview">
+                                        <img src="@item.ImageProducts.First().URLImage" id="imagebox" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-cus">
+                                <div class="content">
+                                    <div style="font-size:1.8rem" class="detail-title">@item.nameProduct</div>
+                                    <div style="display:none; font-size:1.8rem" class="idFood">@item.idProduct</div>
+                                    <div class="detail-price info-price total-money">@item.price,000₫</div>
+                                    <div class="detail-size">
+
+                                        @{
+
+                                            if (@item.sizeM > 0)
+                                            {
+                                                <div class="size">M</div>
+                                            }
+                                            else
+                                            {
+                                                <div class="size-D ">M</div>
+                                            }
+                                            if (@item.sizeL > 0)
+                                            {
+                                                <div class="size">L</div>
+                                            }
+                                            else
+                                            {
+                                                <div class="size-D ">L</div>
+                                            }
+
+                                            if (@item.sizeXL > 0)
+                                            {
+                                                <div class="size">XL</div>
+                                            }
+                                            else
+                                            {
+                                                <div class="size-D ">XL</div>
+                                            }
+                                        }
+
+
+
+
+                                    </div>
+
+                                    <div class="detail-amount">
+                                        <button class="button-amount button-minus">-</button>
+                                        <input type="number" class="input-amout" readonly value="1" />
+                                        <button class="button-amount button-add">+</button>
+                                    </div>
+
+                                    <div class="detail-button-add-cart button-hover" id="add-to-cart">Thêm vào giỏ hàng</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    break;
+                }
+
+            }
+
+
+        </div>
+        <!-- detail end -->
+        <!-- mô tả sản phẩm -->
+        <div class="product-description">
+            <head>
+                <title>Mô tả sản phẩm - Công ty TNHH Thương mại & Xuất nhập khẩu LONGBIEN BIKE</title>
+            </head>
+            <body>
+                <h2 class="des-heading">MÔ TẢ SẢN PHẨM</h2>
+                <div class="description">
+                    <h4 class="des-title">◤mô tả</h4>
+                    <ul class="list-des">
+                        <li class="list-des-item">
+                            - Chuyên xe đạp thể thao, phụ tùng, phụ kiện, Fixed Gear.
+                        </li>
+                    </ul>
+                </div>
+                <div class="note">
+                    <h4 class="des-title">lưu ý:</h4>
+                    <ul class="list-des">
+                        <li class="list-des-item">
+                            - Quý khách đã đặt mua sản phẩm thì cố gắng nhận hàng giúp Shop, vì khi hàng bị chuyển hoàn về Shop mất rất nhiều phí vận chuyển đi, về lại. Rất mong quý khách giúp đỡ. Cảm ơn Quý khách.
+                        </li>
+                    </ul>
+                </div>
+            </body>
+        </div>
+        <!-- mô tả sản phẩm -->
+        <!-- sản phẩm tương tự -->
+        <div class="similar-product">
+            <div class="products">
+                <div class="product-heading">SẢN PHẨM TƯƠNG TỰ</div>
+                <div class="grid">
+                    <div class="grid__row">
+
+                        @foreach (var item in Lst)
+                        {
+                        <div class="grid__col-3">
+                            <div style="display:none" id="idProduct">@item.idProduct</div>
+                            <div class="product">
+                                <img src="@item.ImageProducts.First().URLImage" alt="" class="product-img product-show">
+
+                                <img src="@item.ImageProducts.Last().URLImage" alt="" class="product-img product-img-hover">
+
+                            </div>
+                            <div class="product-info">
+                                <div class="product-title">
+                                    @item.nameProduct
+                                </div>
+                                <div class="product-price">
+                                    @item.price,000đ
+                                </div>
+                            </div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- sản phẩm tương tự -->
+    </div>
+
+    <script>
+        function clickme(smallImg) {
+            var fullImg = document.getElementById('imagebox');
+            fullImg.src = smallImg.src;
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    @Scripts.Render("~/bundles/product")
+    @Scripts.Render("~/bundles/calculate")
+    @Scripts.Render("~/bundles/detail")

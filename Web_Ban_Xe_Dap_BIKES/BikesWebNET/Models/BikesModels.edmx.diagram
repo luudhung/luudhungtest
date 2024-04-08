@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5cdc38ad764949ff86f2e207e03a448e" Name="Diagram1">
+        <EntityTypeShape EntityType="BIKESModels.Bill" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIKESModels.DetailBIll" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIKESModels.ImageProduct" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIKESModels.Permission" Width="1.5" PointX="1.5" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIKESModels.Product" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIKESModels.Type" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIKESModels.User" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BIKESModels.Voucher" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="BIKESModels.FK__Bill__idUser__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="BIKESModels.FK__DetailBIl__idBil__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="BIKESModels.FK__DetailBIl__idPro__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="BIKESModels.FK__ImageProd__idPro__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="BIKESModels.FK__User__idPermissi__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="BIKESModels.FK__Product__idType__4316F928" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
